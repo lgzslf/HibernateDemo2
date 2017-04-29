@@ -1,0 +1,28 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+
+		<!-- 设置数据库自己的方言: 5.5之前的版本使用MySQLInnoDBDialect;5.5之后的版本使用MySQL5InnoDBDialect; -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
+		
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>		
+		<property name="hibernate.connection.url">jdbc:mysql:///test</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">root</property>	
+	
+		<!-- 自动生成数据库表 -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		
+		<!-- 是否在控制台显示SQL语句 -->
+		<property name="show_sql">true</property>
+		<!-- 格式化输出SQL语句 -->
+		<property name="hibernate.format_sql">true</property>
+		
+		<!-- 映射到哪个hbm.xml文件,需要带包名 -->		
+		<mapping resource="com\lgz\Person.hbm.xml" />
+		
+	</session-factory>
+</hibernate-configuration>
